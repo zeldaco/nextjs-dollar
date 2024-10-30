@@ -73,6 +73,16 @@ const EditStuffForm = ({ stuff }: { stuff: Stuff }) => {
                   </select>
                   <div className="invalid-feedback">{errors.condition?.message}</div>
                 </Form.Group>
+                <Form.Group>
+                  <Form.Label>Value</Form.Label>
+                  <input
+                    type="number"
+                    {...register('value')}
+                    defaultValue={stuff.value}
+                    className={`form-control ${errors.value ? 'is-invalid' : ''}`}
+                  />
+                  <div className="invalid-feedback">{errors.value?.message}</div>
+                </Form.Group>
                 <input type="hidden" {...register('owner')} value={stuff.owner} />
                 <Form.Group className="form-group">
                   <Row className="pt-3">

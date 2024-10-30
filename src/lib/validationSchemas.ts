@@ -5,6 +5,7 @@ export const AddStuffSchema = Yup.object({
   quantity: Yup.number().positive().required(),
   condition: Yup.string().oneOf(['excellent', 'good', 'fair', 'poor']).required(),
   owner: Yup.string().required(),
+  value: Yup.number().required('Value is required').positive(),
 });
 
 export const EditStuffSchema = Yup.object({
@@ -13,4 +14,5 @@ export const EditStuffSchema = Yup.object({
   quantity: Yup.number().positive().required(),
   condition: Yup.string().oneOf(['excellent', 'good', 'fair', 'poor']).required(),
   owner: Yup.string().required(),
+  value: Yup.number().required('Value is required').positive(),
 });

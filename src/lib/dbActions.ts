@@ -9,7 +9,9 @@ import { prisma } from './prisma';
  * Adds a new stuff to the database.
  * @param stuff, an object with the following properties: name, quantity, owner, condition.
  */
-export async function addStuff(stuff: { name: string; quantity: number; owner: string; condition: string }) {
+export async function addStuff(
+  stuff: { name: string; quantity: number; owner: string; condition: string; value: number },
+) {
   // console.log(`addStuff data: ${JSON.stringify(stuff, null, 2)}`);
   let condition: Condition = 'good';
   if (stuff.condition === 'poor') {
@@ -25,6 +27,7 @@ export async function addStuff(stuff: { name: string; quantity: number; owner: s
       quantity: stuff.quantity,
       owner: stuff.owner,
       condition,
+      value: stuff.value,
     },
   });
   // After adding, redirect to the list page
@@ -44,6 +47,7 @@ export async function editStuff(stuff: Stuff) {
       quantity: stuff.quantity,
       owner: stuff.owner,
       condition: stuff.condition,
+      value: stuff.value,
     },
   });
   // After updating, redirect to the list page

@@ -37,5 +37,6 @@ model Stuff {
   name      String
   quantity  Int
   condition Condition
+  value     Int       @default(0) // Set a default value as appropriate
   owner     String
 }
